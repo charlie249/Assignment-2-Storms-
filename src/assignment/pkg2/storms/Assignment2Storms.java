@@ -13,14 +13,12 @@ import java.util.Scanner;
 
 public class Assignment2Storms {
 
-    /**
-     * @param args the command line arguments
+    /** get the choice from the user
+     * 
+     * @return values  1-8
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        
-        Company SAC = new Company();
-
+    private static int getChoice()
+    {
         System.out.println("What do you wish to do. Please enter the corresponding number.");
         System.out.println("1: Add a Hurricane to the list");
         System.out.println("2: Add a Tornado to the list");
@@ -32,7 +30,21 @@ public class Assignment2Storms {
         System.out.println("8: EXIT the system");
 
         Scanner scanner = new Scanner(System.in);
-        int choice = Integer.parseInt(scanner.nextLine());
+        int result =  Integer.parseInt(scanner.nextLine());
+        scanner.close();
+        return result;
+                
+    }
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        Company SAC = new Company();
+
+        int choice = getChoice();
 
         while (choice != 8) {
             if (choice < 4) {
@@ -110,20 +122,9 @@ public class Assignment2Storms {
                 System.exit(0);
             }
 
-            System.out.println("What do you wish to do. Please enter the corresponding number.");
-            System.out.println("1: Add a Hurricane");
-            System.out.println("2: Add a Tornado");
-            System.out.println("3: Add a Blizzard");
-            System.out.println("4: View the listed storms");
-            System.out.println("5: Edit a storms data");
-            System.out.println("6: View data about a storm");
-            System.out.println("7: Remove a storm from the system");
-            System.out.println("8: EXIT");
-
-            choice = Integer.parseInt(scanner.nextLine());
+            choice = getChoice();
 
         }
-        scanner.close();
     }
 
 }
