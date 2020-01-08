@@ -91,7 +91,7 @@ public class Assignment2Storms {
                 if(storm != null)
                 {
                     storm.print();
-                     System.out.println(storm.getWarning());                    
+                    System.out.println(storm.getWarning());                    
                 }
                 else
                 {
@@ -103,13 +103,9 @@ public class Assignment2Storms {
                 Scanner inScan = new Scanner(System.in);
                 String stormName = inScan.nextLine();
                 int stormId = Integer.parseInt(stormName);
-                if(stormName != null){
+                if(stormName != null)
                 SAC.storms[stormId] = null;
-                }
-                else
-                {
-                    System.out.println("This storm was not recorded on our system.");
-                }
+                
             } else if (choice == 8) {
                 System.exit(0);
             }
