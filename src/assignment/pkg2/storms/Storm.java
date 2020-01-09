@@ -16,8 +16,22 @@ public abstract class Storm {
     String name;
     int windSpeed;
     int temp;
+    String type;
    
     public abstract String getWarning();
+    
+    public Storm(String typeIn)
+    {
+      type = typeIn;
+    }
+    
+    public Storm(String typeIn, String nameIn, int windSpeedIn, int tempIn)
+    {
+        type = typeIn;
+        name = nameIn;
+        windSpeed = windSpeedIn;
+        temp = tempIn;
+    }
     
     public void setName(String nameIn) 
     {
@@ -26,7 +40,7 @@ public abstract class Storm {
     
     public String toString()
     {
-        return name + " " + windSpeed + " " + temp;
+        return type + ":" + name + " " + windSpeed + " " + temp;
     }
     
     public void setWindSpeed(int windSpeedIn)
@@ -71,6 +85,14 @@ public abstract class Storm {
    
     public static class Tornado extends Storm
     {
+
+        public Tornado(String nameIn, int windSpeedIn, int tempIn) {
+            super("Tornado", nameIn, windSpeedIn, tempIn);
+        }
+
+        Tornado(String type) {
+            super(type);
+        }
             public String getWarning()
             {
                 String result;
@@ -117,6 +139,14 @@ public abstract class Storm {
     
     public static class Hurricane extends Storm
     {
+
+        Hurricane(String name, int speed, int temp) {
+            super("Hurricane", name, speed, temp);
+        }
+
+        Hurricane(String type) {
+            super(type);
+        }
             public String getWarning()
             {
                 String result;
@@ -157,6 +187,14 @@ public abstract class Storm {
     
     public static class Blizzard extends Storm
     {
+
+        public Blizzard(String nameIn, int windSpeedIn, int tempIn) {
+            super("Blizzard", nameIn, windSpeedIn, tempIn);
+        }
+
+        Blizzard(String type) {
+            super(type);
+        }
             public String getWarning()
             {
                 String result;
