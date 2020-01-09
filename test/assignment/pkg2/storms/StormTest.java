@@ -10,7 +10,6 @@ import assignment.pkg2.storms.Storm.Hurricane;
 import assignment.pkg2.storms.Storm.Tornado;
 import org.junit.Assert;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -309,11 +308,5 @@ public class StormTest {
     public void testPrint() {
     }
 
-    public class StormImpl extends Storm {
-
-        public String getWarning() {
-            return "";
-        }
-    }
     
 }
