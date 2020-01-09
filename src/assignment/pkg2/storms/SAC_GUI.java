@@ -66,8 +66,7 @@ public class SAC_GUI extends JFrame {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 if (e.getValueIsAdjusting() == false) {
-                    System.out.println(e.getFirstIndex() + " selected");
-                    final int index = e.getFirstIndex();
+                    final int index = e.getLastIndex();
                     Storm storm = SAC.storms[index];
                     if (storm != null) {
                         System.out.println(storm.toString());
@@ -90,17 +89,14 @@ public class SAC_GUI extends JFrame {
         // create company
         Company SAC = new Company();
 
-        Hurricane h1 = new Hurricane();
-        h1.setName("Hurr 1");
-        h1.setTemp(23);
-        h1.setWindSpeed(200);
-
-        SAC.storms[0] = h1;
+        SAC.storms[0] =  new Hurricane("Hurr 1", 100, 34);
+        SAC.storms[4] =  new Hurricane("Hurr 5", 200, 24);
+        SAC.storms[11] =  new Hurricane("Hurr 12", 140, 14);
 
         // look how your sample code createa a new frame
         SAC_GUI frame = new SAC_GUI(SAC);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(600, 300);
+        frame.setSize(600, 450);
         frame.setVisible(true);
 
     }

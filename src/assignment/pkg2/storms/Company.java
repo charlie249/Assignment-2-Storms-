@@ -24,17 +24,17 @@ public class Company {
   
     public Storm newHurricane()
     {
-        return newStorm(new Storm.Hurricane(), "Hurricane");
+        return newStorm(new Storm.Hurricane("Hurricane"), "Hurricane");
     }
     
     public Storm newBlizzard()
     {
-        return newStorm(new Storm.Blizzard(), "Blizzard");
+        return newStorm(new Storm.Blizzard("Blizzard"), "Blizzard");
     }
     
     public Storm newTornado()
     {
-        return newStorm(new Storm.Tornado(), "Tornado");
+        return newStorm(new Storm.Tornado("Tornado"), "Tornado");
     }
     
     public Storm newStorm(Storm storm, String name)
