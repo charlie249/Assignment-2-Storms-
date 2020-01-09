@@ -29,7 +29,7 @@ public class SAC_GUI extends JFrame {
     {
         public EditForm()
         {
-            private JLable lblTitile;
+            
         }
     }
     
