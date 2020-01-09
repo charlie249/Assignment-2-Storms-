@@ -5,6 +5,9 @@
  */
 package assignment.pkg2.storms;
 
+import assignment.pkg2.storms.Storm.Blizzard;
+import assignment.pkg2.storms.Storm.Hurricane;
+import assignment.pkg2.storms.Storm.Tornado;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
@@ -13,8 +16,11 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
 
 /**
  *
@@ -30,15 +36,21 @@ public class EditStorm extends JPanel {
     public JTextField txtStormName;
     public JTextField txtWindSpeed;
     public JTextField txtTemperature;
+    
+    public JComboBox<String> combType;
 
     public JButton btnSave;
     private Storm currentStorm;
 
     private GridBagConstraints constraints;
     private final JButton btnDelete;
+    private int index;
+    private final Storm[] storms;
 
-    public EditStorm(final JList list) {
+    public EditStorm(final JList list, Storm[] stormsIn) {
 
+        storms = stormsIn;
+        
         this.setLayout(new GridBagLayout());
 
         lblStormName = new JLabel("Storm Name: ");
@@ -52,7 +64,9 @@ public class EditStorm extends JPanel {
         txtWindSpeed.setColumns(10);
         txtTemperature = new JTextField();
         txtTemperature.setColumns(10);
-
+        
+        String[] stormTypes = {"Hurricane", "Tornado", "Blizzard"};
+        combType = new JComboBox<String>(stormTypes);
 
         btnSave = new JButton("Save new storm data");
         btnSave.addActionListener(new ActionListener(){
@@ -60,6 +74,31 @@ public class EditStorm extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 if(currentStorm != null)
                 {
+                    // check it's the correct type of storm
+                    String stormType = currentStorm.getType();
+                    String selection = (String) combType.getSelectedItem();
+                    if(!selection.equals(stormType))
+                    {
+                        // ok, we have to change the storm type
+                        switch(selection)
+                        {
+                            case "Hurricane":
+                                currentStorm = new Hurricane();
+                                break;
+                            case "Tornado":
+                                currentStorm = new Tornado();
+                                break;
+                            case "Blizzard":
+                                currentStorm = new Blizzard();
+                                break;
+                        }
+                        // put the new object back in the list
+                        storms[index] = currentStorm;
+                        
+                        ListModel model = list.getModel();
+                        System.out.println(model);
+                    }
+                    
                     currentStorm.setName(txtStormName.getText());
                     try
                     {
@@ -106,16 +145,27 @@ public class EditStorm extends JPanel {
         constraints.gridy = 0;
         constraints.gridx = 0;          //New row
         constraints.gridwidth = 1;
+        this.add(new JLabel("Storm Type"), constraints);
+
+        constraints.gridy = 0;
+        constraints.gridx = 1;          //New row
+        constraints.gridwidth = 1;
+        this.add(combType, constraints);
+        
+
+        constraints.gridy = 1;
+        constraints.gridx = 0;          //New row
+        constraints.gridwidth = 1;
         this.add(lblStormName, constraints);
 
+        constraints.gridy = 1;          //New row
         constraints.gridx = 1;
-        constraints.gridy = 0;          //New row
         //makes text box fill width of column
 //        constraints.fill = GridBagConstraints.HORIZONTAL;
         this.add(txtStormName, constraints);
 
         //      constraints.fill = GridBagConstraints.NONE;
-        constraints.gridy = 2;
+        constraints.gridy = 3;
         constraints.gridx = 0;
         this.add(lblWindSpeed, constraints);
 
@@ -124,7 +174,7 @@ public class EditStorm extends JPanel {
         this.add(txtWindSpeed, constraints);
 
         //    constraints.fill = GridBagConstraints.NONE;
-        constraints.gridy = 3;
+        constraints.gridy = 4;
         constraints.gridx = 0;
         this.add(lblTemperature, constraints);
 
@@ -133,25 +183,28 @@ public class EditStorm extends JPanel {
         this.add(txtTemperature, constraints);
 
 
-        constraints.gridy = 5;
+        constraints.gridy = 7;
         constraints.gridx = 1;
         this.add(btnSave, constraints);
 
                 //    constraints.fill = GridBagConstraints.NONE;
-        constraints.gridy = 6;
+        constraints.gridy = 8;
         constraints.gridx = 1;
         this.add(btnDelete, constraints);
 
-        constraints.gridy = 4;
+        constraints.gridy = 6;
         constraints.gridx = 0;
         constraints.gridwidth = 2;
         this.add(lblWarning, constraints);
 
     }
 
-    public void setStorm(Storm storm) {
+    public void setStorm(Storm storm, int indexIn) {
         // display contents of this storm
         currentStorm = storm;
+        index = indexIn;
+        System.out.println("Setting type to:" + storm.getType() + " index:" + index + " name:" + storm.getName());
+        combType.setSelectedItem(storm.getType());
         txtStormName.setText(storm.getName());
         txtWindSpeed.setText("" + storm.getWindSpeed());
         txtTemperature.setText("" + storm.getTemp());
