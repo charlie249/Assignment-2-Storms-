@@ -10,6 +10,8 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import java.awt.GridBagConstraints;
+
 
 /**
  *
@@ -27,9 +29,12 @@ public class EditStorm extends JFrame {
         
         public JButton btnEdit;
         
+        private GridBagConstraints constraints;
+        
     public EditStorm()
     {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(new GridBagLayout());
         
         lblTitle = new JLabel("Edit Storm");
         
@@ -42,6 +47,17 @@ public class EditStorm extends JFrame {
         txtTemperature = new JTextField();
         
         btnEdit = new JButton("Save new storm data");
+        
+       constraints = new GridBagConstraints();
     }
     
+
+
+public void layoutComponenets()
+{
+    constraints.gridy = 0; //sets row
+    constraints.gridx = 0; // sets coloumn
+    constraints.gridwidth = 2; //two columns wide
+}
+
 }
