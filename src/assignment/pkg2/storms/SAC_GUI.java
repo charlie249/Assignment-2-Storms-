@@ -70,6 +70,7 @@ public class SAC_GUI extends JFrame {
                     Storm storm = SAC.storms[index];
                     if (storm == null) {
                         storm = new Hurricane();
+                        SAC.storms[index] = storm;
                     }
                     System.out.println("Editing:" + storm);
                     // now edit this storm
