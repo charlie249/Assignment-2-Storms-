@@ -95,8 +95,6 @@ public class EditStorm extends JPanel {
                         // put the new object back in the list
                         storms[index] = currentStorm;
                         
-                        ListModel model = list.getModel();
-                        System.out.println(model);
                     }
                     
                     currentStorm.setName(txtStormName.getText());
@@ -117,8 +115,11 @@ public class EditStorm extends JPanel {
                     }
                     lblWarning.setText("<html>" + currentStorm.getWarning() + "</html>");
 
-                    list.setModel(list.getModel());
-                    list.updateUI();
+                    // update the list with the new array
+                    list.setListData(storms);
+                    
+                    // get the list to update
+//                    list.updateUI();
                 }
             }
         });
@@ -203,7 +204,6 @@ public class EditStorm extends JPanel {
         // display contents of this storm
         currentStorm = storm;
         index = indexIn;
-        System.out.println("Setting type to:" + storm.getType() + " index:" + index + " name:" + storm.getName());
         combType.setSelectedItem(storm.getType());
         txtStormName.setText(storm.getName());
         txtWindSpeed.setText("" + storm.getWindSpeed());
