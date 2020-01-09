@@ -60,6 +60,22 @@ public class EditStorm extends JPanel {
             }
         });
 
+        txtWindSpeed.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if(currentStorm != null){
+                    currentStorm.setWindSpeed(Integer.parseInt(txtWindSpeed.getText()));
+                }
+            }
+        });
+        
+        txtTemperature.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if(currentStorm != null){
+                    currentStorm.setTemp(Integer.parseInt(txtTemperature.getText()));
+                }
+            }
+        });
+        
         btnEdit = new JButton("Save new storm data");
 
         constraints = new GridBagConstraints();
@@ -75,11 +91,33 @@ public class EditStorm extends JPanel {
         constraints.gridwidth = 1;
         this.add(lblStormName, constraints);
 
-        constraints.gridy = 1;
-        constraints.gridx = 1;          //New row
-        constraints.gridwidth = 1;
+        constraints.gridx = 1;
+        //makes text box fill width of column
+        constraints.fill = GridBagConstraints.HORIZONTAL;
         this.add(txtStormName, constraints);
         
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.gridy = 2;
+        constraints.gridx = 0;
+        this.add(lblWindSpeed, constraints);
+        
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.gridx = 1;
+        this.add(txtWindSpeed, constraints);
+        
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.gridy = 3;
+        constraints.gridx = 0;
+        this.add(lblTemperature);
+        
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.gridx = 1;
+        this.add(txtTemperature, constraints);
+        
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.gridy = 4;
+        constraints.gridx = 0;
+        this.add(btnEdit, constraints);    
         
     }
 
