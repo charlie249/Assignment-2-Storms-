@@ -24,6 +24,11 @@ public abstract class Storm {
         name = nameIn;
     }
     
+    public String toString()
+    {
+        return name + " " + windSpeed + " " + temp;
+    }
+    
     public void setWindSpeed(int windSpeedIn)
     {
       windSpeed = windSpeedIn;

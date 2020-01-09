@@ -5,6 +5,7 @@
  */
 package assignment.pkg2.storms;
 
+import assignment.pkg2.storms.Storm.Hurricane;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import static java.util.Collections.list;
@@ -15,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 
 /**
@@ -28,7 +30,7 @@ public class SAC_GUI extends JFrame {
         
         // add list box
         String[] listEntries = {"alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta"};
-        JList list = new JList(listEntries);
+        JList list = new JList(SAC.storms);
         
         JScrollPane scroller = new JScrollPane(list);
         scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -63,8 +65,16 @@ public class SAC_GUI extends JFrame {
         // create company
         Company SAC = new Company();
         
+        Hurricane h1 = new Hurricane();
+        h1.setName("Hurr 1");
+        h1.setTemp(23);
+        h1.setWindSpeed(200);
+        
+        SAC.storms[0] = h1;
+        
         // look how your sample code createa a new frame
         SAC_GUI frame = new SAC_GUI(SAC);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(600, 300);
         frame.pack();
         frame.setVisible(true);
