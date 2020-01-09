@@ -39,7 +39,7 @@ public class SAC_GUI extends JFrame {
 
         final EditStorm editForm = new EditStorm(list, SAC.storms);
         getContentPane().add(BorderLayout.CENTER, editForm);
-        
+
         JLabel title = new JLabel("Storm Advice Centre", JLabel.CENTER);
         // create taller font
         title.setFont(title.getFont().deriveFont(28f));
@@ -47,25 +47,26 @@ public class SAC_GUI extends JFrame {
 
         // sets number of lines to show before scrolling
         list.setVisibleRowCount(20);
-        
+
         list.setPreferredSize(new Dimension(200, 100));
 
         // restricts the user to selecting only one at a time
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        
-        DefaultListCellRenderer renderer = new DefaultListCellRenderer(){
+
+        DefaultListCellRenderer renderer = new DefaultListCellRenderer() {
             public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 Storm storm = (Storm) value;
-                JLabel res; 
-                if(storm != null)
+                JLabel res;
+                if (storm != null) {
                     res = new JLabel(storm.toString());
-                else
+                } else {
                     res = new JLabel("Pending");
+                }
                 res.setOpaque(isSelected);
                 return res;
             }
         };
-        
+
         list.setCellRenderer(renderer);
 
         // registers for list selection events
@@ -73,15 +74,23 @@ public class SAC_GUI extends JFrame {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 if (e.getValueIsAdjusting() == false) {
-                    final int index = e.getLastIndex();
-                    Storm storm = SAC.storms[index];
-                    if (storm == null) {
-                        storm = new Hurricane();
-                        SAC.storms[index] = storm;
+                    Storm selected = (Storm) list.getSelectedValue();
+
+                    if (selected != null) {
+                        // find the index
+                        for (int i = 0; i < 20; i++) {
+                            if (SAC.storms[i] == selected) {
+                                editForm.setStorm(selected, i);
+                                return;
+                            }
+                        }
+                    } else {
+                        // ok
+                        final int index = e.getLastIndex();
+                        Storm storm = new Hurricane();
+                        // now edit this storm
+                        editForm.setStorm(storm, index);
                     }
-                    System.out.println("Editing:" + storm);
-                    // now edit this storm
-                    editForm.setStorm(storm, index);
                 }
             }
         });
@@ -100,9 +109,9 @@ public class SAC_GUI extends JFrame {
         // create company
         Company SAC = new Company();
 
-        SAC.storms[0] =  new Hurricane("Hurr 1", 100, 34);
-        SAC.storms[4] =  new Tornado("Torn 5", 200, 24);
-        SAC.storms[11] =  new Blizzard("Blizz 12", 140, 14);
+        SAC.storms[0] = new Hurricane("Hurr 1", 100, 34);
+        SAC.storms[4] = new Tornado("Torn 5", 200, 24);
+        SAC.storms[11] = new Blizzard("Blizz 12", 140, 14);
 
         // look how your sample code createa a new frame
         SAC_GUI frame = new SAC_GUI(SAC);
