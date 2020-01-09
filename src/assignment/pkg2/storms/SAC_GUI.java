@@ -5,21 +5,17 @@
  */
 package assignment.pkg2.storms;
 
+import assignment.pkg2.storms.Storm.Blizzard;
 import assignment.pkg2.storms.Storm.Hurricane;
+import assignment.pkg2.storms.Storm.Tornado;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import static java.util.Collections.list;
 import javax.swing.JFrame;
-import javax.swing.BoxLayout;
 import javax.swing.DefaultListCellRenderer;
-import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.WindowConstants;
@@ -41,7 +37,7 @@ public class SAC_GUI extends JFrame {
         scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         getContentPane().add(BorderLayout.WEST, scroller);
 
-        final EditStorm editForm = new EditStorm(list);
+        final EditStorm editForm = new EditStorm(list, SAC.storms);
         getContentPane().add(BorderLayout.CENTER, editForm);
         
         JLabel title = new JLabel("Storm Advice Centre", JLabel.CENTER);
@@ -85,7 +81,7 @@ public class SAC_GUI extends JFrame {
                     }
                     System.out.println("Editing:" + storm);
                     // now edit this storm
-                    editForm.setStorm(storm);
+                    editForm.setStorm(storm, index);
                 }
             }
         });
@@ -105,8 +101,8 @@ public class SAC_GUI extends JFrame {
         Company SAC = new Company();
 
         SAC.storms[0] =  new Hurricane("Hurr 1", 100, 34);
-        SAC.storms[4] =  new Hurricane("Hurr 5", 200, 24);
-        SAC.storms[11] =  new Hurricane("Hurr 12", 140, 14);
+        SAC.storms[4] =  new Tornado("Torn 5", 200, 24);
+        SAC.storms[11] =  new Blizzard("Blizz 12", 140, 14);
 
         // look how your sample code createa a new frame
         SAC_GUI frame = new SAC_GUI(SAC);
