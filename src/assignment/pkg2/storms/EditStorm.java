@@ -74,10 +74,21 @@ public void layoutComponenets()
     constraints.gridy = 0; //sets row
     constraints.gridx = 0; // sets coloumn
     constraints.gridwidth = 2; //two columns wide
+    
+    this.add(lblTitle, constraints); // adds the component
+    
+    constraints.gridy = 1;         
+    constraints.gridx = 0;          //New row
+    constraints.gridwidth = 1;
+    this.add(lblStormName, constraints);
 }
     public void setStorm(Storm storm)
     {
         // display contents of this storm
         currentStorm = storm;
+        txtStormName.setText(storm.getName());
+        txtWindSpeed.setText(storm.getWindSpeed());
+        txtTemperature.setText(storm.getTemp());
+        
     }
 }   
