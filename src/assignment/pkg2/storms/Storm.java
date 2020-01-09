@@ -6,8 +6,6 @@
 package assignment.pkg2.storms;
 
 import java.util.Scanner;
-import org.junit.Test;
-import static org.junit.Assert.*;
 /**
  *
  * @author charlie
