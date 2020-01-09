@@ -5,7 +5,17 @@
  */
 package assignment.pkg2.storms;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import static java.util.Collections.list;
 import javax.swing.JFrame;
+import javax.swing.BoxLayout;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.event.ListSelectionEvent;
 
 /**
  *
@@ -13,14 +23,28 @@ import javax.swing.JFrame;
  */
 public class SAC_GUI extends JFrame {
     
-    
     public SAC_GUI(Company SAC)
     {
-        // layout
-        
         
         // add list box
+        String[] listEntries = {"alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta"};
+        JList list = new JList(listEntries);
         
+        JScrollPane scroller = new JScrollPane(list);
+        scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        getContentPane().add(BorderLayout.WEST,scroller);
+        
+        // sets number of lines to show before scrolling
+        list.setVisibleRowCount(4);
+        
+        // restricts the user to selecting only one at a time
+        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        // registers for list selection events
+       
+        
+       
         
         // give storms to list box
         
@@ -41,7 +65,9 @@ public class SAC_GUI extends JFrame {
         
         // look how your sample code createa a new frame
         SAC_GUI frame = new SAC_GUI(SAC);
+        frame.setSize(600, 300);
         frame.pack();
+        frame.setVisible(true);
         
     }
     
