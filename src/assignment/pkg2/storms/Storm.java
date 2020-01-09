@@ -83,6 +83,10 @@ public abstract class Storm {
         setTemp(Integer.parseInt(scanIn.nextLine()));
     }
 
+    public String getType() {
+        return type;
+    }
+
    
     public static class Tornado extends Storm
     {
