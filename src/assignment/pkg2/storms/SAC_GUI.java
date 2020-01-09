@@ -13,6 +13,8 @@ import java.awt.Dimension;
 import static java.util.Collections.list;
 import javax.swing.JFrame;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -39,8 +41,13 @@ public class SAC_GUI extends JFrame {
         scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         getContentPane().add(BorderLayout.WEST, scroller);
 
-        final EditStorm editForm = new EditStorm();
+        final EditStorm editForm = new EditStorm(list);
         getContentPane().add(BorderLayout.CENTER, editForm);
+        
+        JLabel title = new JLabel("Storm Something Something", JLabel.CENTER);
+        // create taller font
+        title.setFont(title.getFont().deriveFont(28f));
+        getContentPane().add(BorderLayout.NORTH, title);
 
         // sets number of lines to show before scrolling
         list.setVisibleRowCount(20);
@@ -50,16 +57,20 @@ public class SAC_GUI extends JFrame {
         // restricts the user to selecting only one at a time
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
-        list.setCellRenderer(new ListCellRenderer(){
-            @Override
+        DefaultListCellRenderer renderer = new DefaultListCellRenderer(){
             public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 Storm storm = (Storm) value;
+                JLabel res; 
                 if(storm != null)
-                    return new JLabel(storm.toString());
+                    res = new JLabel(storm.toString());
                 else
-                    return new JLabel("Pending");
+                    res = new JLabel("Pending");
+                res.setOpaque(isSelected);
+                return res;
             }
-        });
+        };
+        
+        list.setCellRenderer(renderer);
 
         // registers for list selection events
         list.addListSelectionListener(new ListSelectionListener() {
@@ -100,7 +111,8 @@ public class SAC_GUI extends JFrame {
         // look how your sample code createa a new frame
         SAC_GUI frame = new SAC_GUI(SAC);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(600, 450);
+        frame.pack();
+        frame.setSize(1200, 450);
         frame.setVisible(true);
 
     }
