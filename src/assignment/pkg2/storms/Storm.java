@@ -90,8 +90,8 @@ public abstract class Storm {
             super("Tornado", nameIn, windSpeedIn, tempIn);
         }
 
-        Tornado(String type) {
-            super(type);
+        Tornado() {
+            super("Tornado");
         }
             public String getWarning()
             {
@@ -144,8 +144,8 @@ public abstract class Storm {
             super("Hurricane", name, speed, temp);
         }
 
-        Hurricane(String type) {
-            super(type);
+        Hurricane() {
+            super("Hurricane");
         }
             public String getWarning()
             {
@@ -192,8 +192,8 @@ public abstract class Storm {
             super("Blizzard", nameIn, windSpeedIn, tempIn);
         }
 
-        Blizzard(String type) {
-            super(type);
+        Blizzard() {
+            super("Blizzard");
         }
             public String getWarning()
             {
