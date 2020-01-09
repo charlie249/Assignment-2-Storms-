@@ -44,7 +44,7 @@ public class SAC_GUI extends JFrame {
         final EditStorm editForm = new EditStorm(list);
         getContentPane().add(BorderLayout.CENTER, editForm);
         
-        JLabel title = new JLabel("Storm Something Something", JLabel.CENTER);
+        JLabel title = new JLabel("Storm Advice Centre", JLabel.CENTER);
         // create taller font
         title.setFont(title.getFont().deriveFont(28f));
         getContentPane().add(BorderLayout.NORTH, title);

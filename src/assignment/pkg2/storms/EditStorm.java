@@ -66,7 +66,7 @@ public class EditStorm extends JPanel {
                     currentStorm.setWindSpeed(Integer.parseInt(txtWindSpeed.getText()));
                     } catch(NumberFormatException nfe)
                     {
-                        JOptionPane.showMessageDialog(null, "Badly formatted speed, please try again");
+                        JOptionPane.showMessageDialog(null, "Badly formatted windspeed, please try again");
                     }
                     try
                     {

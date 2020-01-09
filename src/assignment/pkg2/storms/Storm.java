@@ -97,7 +97,10 @@ public abstract class Storm {
             public String getWarning()
             {
                 String result;
-                if(windSpeed > 261)
+                if(name == null){
+                    result = "pending";
+                }
+                else if(windSpeed > 261)
                 {
                     result = "This is an F5 Tornado. " + 
                             "You are advised to find underground shelter immediately, crouch near to the floor covering your head with your hands.";
@@ -151,7 +154,10 @@ public abstract class Storm {
             public String getWarning()
             {
                 String result;
-                if(windSpeed > 156)
+                if(name == null){
+                    result = "pending";
+                }
+                else if(windSpeed > 156)
                 {
                   result = "Catagory five Hurricane!!!!! " +
                  "You are advised to evacuate as soon as possible.";
@@ -198,8 +204,11 @@ public abstract class Storm {
         }
             public String getWarning()
             {
-                String result;
-                if(windSpeed >= 45 && temp <= -12 )
+                 String result;
+                if(name == null){
+                    result = "pending";
+                }
+                else if(windSpeed >= 45 && temp <= -12 )
                 {
                    result = "This is a Servere Blizzard " +
                     "Keep warm and avoid travel at all costs";
