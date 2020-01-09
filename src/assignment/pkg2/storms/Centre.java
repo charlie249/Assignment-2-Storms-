@@ -9,12 +9,12 @@ import java.util.Scanner;
  *
  * @author charlie
  */
-public class Company {
+public class Centre {
     
     
     Storm[] storms = new Storm[20];
     
-    public Company ()
+    public Centre ()
     {
         for(int i=0;i<20;i++)
         {

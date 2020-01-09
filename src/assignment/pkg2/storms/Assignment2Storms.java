@@ -42,7 +42,7 @@ public class Assignment2Storms {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Company SAC = new Company();
+        Centre SAC = new Centre();
 
         int choice = getChoice();
 

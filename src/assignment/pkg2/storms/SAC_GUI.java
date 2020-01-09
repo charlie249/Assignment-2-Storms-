@@ -28,7 +28,7 @@ import javax.swing.event.ListSelectionListener;
  */
 public class SAC_GUI extends JFrame {
 
-    public SAC_GUI(final Company SAC) {
+    public SAC_GUI(final Centre SAC) {
         // add list box
         JList list = new JList(SAC.storms);
 
@@ -104,10 +104,8 @@ public class SAC_GUI extends JFrame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hello world");
-
         // create company
-        Company SAC = new Company();
+        Centre SAC = new Centre();
 
         SAC.storms[0] = new Hurricane("Hurr 1", 100, 34);
         SAC.storms[4] = new Tornado("Torn 5", 200, 24);
