@@ -81,6 +81,16 @@ public void layoutComponenets()
     constraints.gridx = 0;          //New row
     constraints.gridwidth = 1;
     this.add(lblStormName, constraints);
+   
+    constraints.gridx = 1; 
+    //makes textbox fill width of column
+    constraints.fill = GridBagConstraints.HORIZONTAL;
+    this.add(txtStormName, constraints);
+    
+    constraints.fill = GridBagConstraints.NONE;
+    constraints.gridy = 2;
+    constraints.gridx = 0;
+    this.add(lblWindSpeed, constraints);
 }
     public void setStorm(Storm storm)
     {
