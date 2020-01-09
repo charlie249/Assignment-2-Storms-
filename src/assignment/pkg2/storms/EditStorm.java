@@ -15,90 +15,80 @@ import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-
 /**
  *
  * @author ian
  */
 public class EditStorm extends JPanel {
-        public JLabel lblTitle;
-        public JLabel lblStormName;
-        public JLabel lblWindSpeed;
-        public JLabel lblTemperature;
-        
-        public JTextField txtStormName;
-        public JTextField txtWindSpeed;
-        public JTextField txtTemperature;
-        
-        public JButton btnEdit;
+
+    public JLabel lblTitle;
+    public JLabel lblStormName;
+    public JLabel lblWindSpeed;
+    public JLabel lblTemperature;
+
+    public JTextField txtStormName;
+    public JTextField txtWindSpeed;
+    public JTextField txtTemperature;
+
+    public JButton btnEdit;
     private Storm currentStorm;
-        
-        private GridBagConstraints constraints;
-        
-    public EditStorm()
-    {
+
+    private GridBagConstraints constraints;
+
+    public EditStorm() {
         this.setLayout(new GridBagLayout());
-        
+
         lblTitle = new JLabel("Edit Storm");
-        
+
         lblStormName = new JLabel("Storm Name: ");
         lblWindSpeed = new JLabel("WindSpeed: ");
         lblTemperature = new JLabel("Temperature: ");
-        
+
         txtStormName = new JTextField();
+        txtStormName.setColumns(10);
         txtWindSpeed = new JTextField();
         txtTemperature = new JTextField();
-        
-        txtStormName.addActionListener(new ActionListener(){
+
+        txtStormName.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // do we have a storm?
-                if(currentStorm != null)
-                {
+                if (currentStorm != null) {
                     // set the storm to the new value
                     currentStorm.setName(txtStormName.getText());
                 }
             }
         });
-        
+
         btnEdit = new JButton("Save new storm data");
+
+        constraints = new GridBagConstraints();
         
-       constraints = new GridBagConstraints();
+        
+        constraints.gridy = 0; //sets row
+        constraints.gridx = 0; // sets coloumn
+        constraints.gridwidth = 2; //two columns wide
+        this.add(lblTitle, constraints); // adds the component
+
+        constraints.gridy = 1;
+        constraints.gridx = 0;          //New row
+        constraints.gridwidth = 1;
+        this.add(lblStormName, constraints);
+
+        constraints.gridy = 1;
+        constraints.gridx = 1;          //New row
+        constraints.gridwidth = 1;
+        this.add(txtStormName, constraints);
+        
+        
     }
-    
 
 
-
-public void layoutComponenets()
-{
-    constraints.gridy = 0; //sets row
-    constraints.gridx = 0; // sets coloumn
-    constraints.gridwidth = 2; //two columns wide
-    
-    this.add(lblTitle, constraints); // adds the component
-    
-    constraints.gridy = 1;         
-    constraints.gridx = 0;          //New row
-    constraints.gridwidth = 1;
-    this.add(lblStormName, constraints);
-   
-    constraints.gridx = 1; 
-    //makes textbox fill width of column
-    constraints.fill = GridBagConstraints.HORIZONTAL;
-    this.add(txtStormName, constraints);
-    
-    constraints.fill = GridBagConstraints.NONE;
-    constraints.gridy = 2;
-    constraints.gridx = 0;
-    this.add(lblWindSpeed, constraints);
-}
-    public void setStorm(Storm storm)
-    {
+    public void setStorm(Storm storm) {
         // display contents of this storm
         currentStorm = storm;
         txtStormName.setText(storm.getName());
-        txtWindSpeed.setText(storm.getWindSpeed());
-        txtTemperature.setText(storm.getTemp());
-        
+        txtWindSpeed.setText("" + storm.getWindSpeed());
+        txtTemperature.setText("" + storm.getTemp());
     }
-}   
+}
