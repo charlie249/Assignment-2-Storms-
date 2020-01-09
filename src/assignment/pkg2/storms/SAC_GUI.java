@@ -25,13 +25,6 @@ import javax.swing.event.ListSelectionEvent;
  */
 public class SAC_GUI extends JFrame {
     
-    public static class EditForm extends JPanel
-    {
-        public EditForm()
-        {
-            
-        }
-    }
     
     public SAC_GUI(Company SAC)
     {
@@ -43,7 +36,7 @@ public class SAC_GUI extends JFrame {
         scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         getContentPane().add(BorderLayout.WEST,scroller);
         
-        EditForm editForm = new EditForm();
+        EditStorm editForm = new EditStorm();
         getContentPane().add(BorderLayout.CENTER,editForm);
         
         
