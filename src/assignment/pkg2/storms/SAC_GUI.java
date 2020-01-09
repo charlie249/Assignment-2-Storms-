@@ -71,6 +71,7 @@ public class SAC_GUI extends JFrame {
                     if (storm == null) {
                         storm = new Hurricane();
                     }
+                    System.out.println("Editing:" + storm);
                     // now edit this storm
                     editForm.setStorm(storm);
                 }

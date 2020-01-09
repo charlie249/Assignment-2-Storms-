@@ -13,13 +13,14 @@ import javax.swing.JLabel;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
 
 /**
  *
  * @author ian
  */
-public class EditStorm extends JFrame {
+public class EditStorm extends JPanel {
         public JLabel lblTitle;
         public JLabel lblStormName;
         public JLabel lblWindSpeed;
@@ -36,7 +37,6 @@ public class EditStorm extends JFrame {
         
     public EditStorm()
     {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new GridBagLayout());
         
         lblTitle = new JLabel("Edit Storm");

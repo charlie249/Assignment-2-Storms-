@@ -40,7 +40,10 @@ public abstract class Storm {
     
     public String toString()
     {
-        return type + ":" + name + " " + windSpeed + " " + temp;
+        if(name != null)
+            return type + ":" + name + " " + windSpeed + " " + temp;
+        else
+            return "Pending";
     }
     
     public void setWindSpeed(int windSpeedIn)
