@@ -74,10 +74,10 @@ public void layoutComponenets()
     constraints.gridy = 0; //sets row
     constraints.gridx = 0; // sets coloumn
     constraints.gridwidth = 2; //two columns wide
-
+}
     public void setStorm(Storm storm)
     {
         // display contents of this storm
         currentStorm = storm;
     }
-    
+}   
