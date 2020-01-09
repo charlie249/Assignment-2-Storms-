@@ -26,6 +26,7 @@ public class EditStorm extends JFrame {
         public JTextField txtTemperature;
         
         public JButton btnEdit;
+    private Storm currentStorm;
         
     public EditStorm()
     {
@@ -42,6 +43,12 @@ public class EditStorm extends JFrame {
         txtTemperature = new JTextField();
         
         btnEdit = new JButton("Save new storm data");
+    }
+    
+    public void setStorm(Storm storm)
+    {
+        // display contents of this storm
+        currentStorm = storm;
     }
     
 }

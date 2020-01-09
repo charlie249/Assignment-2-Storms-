@@ -39,7 +39,7 @@ public class SAC_GUI extends JFrame {
         scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         getContentPane().add(BorderLayout.WEST, scroller);
 
-        EditStorm editForm = new EditStorm();
+        final EditStorm editForm = new EditStorm();
         getContentPane().add(BorderLayout.CENTER, editForm);
 
         // sets number of lines to show before scrolling
@@ -68,9 +68,11 @@ public class SAC_GUI extends JFrame {
                 if (e.getValueIsAdjusting() == false) {
                     final int index = e.getLastIndex();
                     Storm storm = SAC.storms[index];
-                    if (storm != null) {
-                        System.out.println(storm.toString());
+                    if (storm == null) {
+                        storm = new Hurricane();
                     }
+                    // now edit this storm
+                    editForm.setStorm(storm);
                 }
             }
         });
