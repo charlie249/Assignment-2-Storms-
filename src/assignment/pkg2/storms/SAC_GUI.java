@@ -25,17 +25,27 @@ import javax.swing.event.ListSelectionEvent;
  */
 public class SAC_GUI extends JFrame {
     
+    public static class EditForm extends JPanel
+    {
+        public EditForm()
+        {
+            private JLable lblTitile;
+        }
+    }
+    
     public SAC_GUI(Company SAC)
     {
-        
         // add list box
-        String[] listEntries = {"alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta"};
         JList list = new JList(SAC.storms);
         
         JScrollPane scroller = new JScrollPane(list);
         scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         getContentPane().add(BorderLayout.WEST,scroller);
+        
+        EditForm editForm = new EditForm();
+        getContentPane().add(BorderLayout.CENTER,editForm);
+        
         
         // sets number of lines to show before scrolling
         list.setVisibleRowCount(4);
