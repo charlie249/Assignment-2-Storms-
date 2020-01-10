@@ -40,7 +40,6 @@ public class Assignment2Storms {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         
         Centre SAC = new Centre();
 

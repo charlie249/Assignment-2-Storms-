@@ -24,7 +24,7 @@ import javax.swing.ListModel;
 
 /**
  *
- * @author ian
+ * @author charlie
  */
 public class EditStorm extends JPanel {
 
@@ -74,12 +74,12 @@ public class EditStorm extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 if(currentStorm != null)
                 {
-                    // check it's the correct type of storm
+                    // checking it's the correct type of storm
                     String stormType = currentStorm.getType();
                     String selection = (String) combType.getSelectedItem();
                     if(!selection.equals(stormType))
                     {
-                        // ok, we have to change the storm type
+                        // changing the storm type
                         switch(selection)
                         {
                             case "Hurricane":

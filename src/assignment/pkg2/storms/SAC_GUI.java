@@ -29,7 +29,7 @@ import javax.swing.event.ListSelectionListener;
 public class SAC_GUI extends JFrame {
 
     public SAC_GUI(final Centre SAC) {
-        // add list box
+        // added a list box
         JList list = new JList(SAC.storms);
 
         JScrollPane scroller = new JScrollPane(list);
@@ -41,7 +41,7 @@ public class SAC_GUI extends JFrame {
         getContentPane().add(BorderLayout.CENTER, editForm);
 
         JLabel title = new JLabel("Storm Advice Centre", JLabel.CENTER);
-        // create taller font
+        // created taller font
         title.setFont(title.getFont().deriveFont(28f));
         getContentPane().add(BorderLayout.NORTH, title);
 
@@ -77,7 +77,7 @@ public class SAC_GUI extends JFrame {
                     Storm selected = (Storm) list.getSelectedValue();
 
                     if (selected != null) {
-                        // find the index
+                        // finds the index
                         for (int i = 0; i < 20; i++) {
                             if (SAC.storms[i] == selected) {
                                 editForm.setStorm(selected, i);
@@ -85,10 +85,10 @@ public class SAC_GUI extends JFrame {
                             }
                         }
                     } else {
-                        // ok
+                        
                         final int index = e.getLastIndex();
                         Storm storm = new Hurricane();
-                        // now edit this storm
+                        // now edits this storm
                         editForm.setStorm(storm, index);
                     }
                 }
@@ -104,7 +104,7 @@ public class SAC_GUI extends JFrame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // create company
+        // created company
         Centre SAC = new Centre();
 
         SAC.storms[0] = new Hurricane("Hurr 1", 100, 34);
