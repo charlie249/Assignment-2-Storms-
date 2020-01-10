@@ -235,9 +235,10 @@ public abstract class Storm {
     
     public void print()
     {
-        System.out.println("This storm is called: " + getName()); 
-        System.out.println("The temperature of this storm is: " + getTemp() + " degrees.");
-        System.out.println("The windspeed of this storm is: " + getWindSpeed() + "mph.");
+        System.out.print("Type: " + getType()); 
+        System.out.print(" Name: " + getName()); 
+        System.out.print(" Temperature: " + getTemp() + " degrees.");
+        System.out.println(" Windspeed: " + getWindSpeed() + "mph.");
     }
 
 

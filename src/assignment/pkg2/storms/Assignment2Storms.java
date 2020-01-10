@@ -31,7 +31,7 @@ public class Assignment2Storms {
 
         Scanner scanner = new Scanner(System.in);
         int result =  Integer.parseInt(scanner.nextLine());
-        scanner.close();
+      //  scanner.close();
         return result;
                 
     }
@@ -71,7 +71,6 @@ public class Assignment2Storms {
                 System.out.println("Here are all the recorded current storms: ");
 
                 for (int i = 0; i < SAC.storms.length; i++) {
-                    System.out.println("Storm: ");
                     Storm thisStorm = SAC.storms[i];
                     if (thisStorm == null) {
                         System.out.println(i + " is empty");
