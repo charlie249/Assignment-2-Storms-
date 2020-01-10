@@ -234,6 +234,8 @@ public class StormTest {
      */
     @Test
     public void testSetWindSpeed() {
+        Tornado t9 = new Tornado("Leeroy",206, 78 );
+        Assert.assertEquals( 206, t9.getWindSpeed());
     }
 
     /**
@@ -241,6 +243,8 @@ public class StormTest {
      */
     @Test
     public void testSetTemp() {
+        Blizzard b10 = new Blizzard("Burka", 123, -23);
+        Assert.assertEquals(-23, b10.getTemp());
     }
 
     /**
@@ -248,6 +252,8 @@ public class StormTest {
      */
     @Test
     public void testGetName() {
+        Hurricane H9 = new Hurricane("Berty", 80, 12);
+        Assert.assertEquals("Berty", H9.getName());
     }
 
     /**
@@ -255,6 +261,8 @@ public class StormTest {
      */
     @Test
     public void testGetWindSpeed() {
+        Tornado T3 = new Tornado("Charles", 270, 98);
+        Assert.assertEquals(270, T3.getWindSpeed());
     }
 
     /**
@@ -262,6 +270,8 @@ public class StormTest {
      */
     @Test
     public void testGetTemp() {
+        Blizzard B6 = new Blizzard("Berty", 50, -34);
+        Assert.assertEquals(-34, B6.getTemp());
     }
 
     /**
@@ -269,6 +279,7 @@ public class StormTest {
      */
     @Test
     public void testEdit() {
+        
     }
 
     /**
@@ -276,6 +287,7 @@ public class StormTest {
      */
     @Test
     public void testPrint() {
+        
     }
 
     

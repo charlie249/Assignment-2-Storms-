@@ -47,6 +47,7 @@ public abstract class Storm {
     public void setWindSpeed(int windSpeedIn)
     {
       windSpeed = windSpeedIn;
+        
     }  
     
     public void setTemp(int tempIn)

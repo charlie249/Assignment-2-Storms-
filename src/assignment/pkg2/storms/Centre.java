@@ -43,9 +43,13 @@ public class Centre {
         Scanner scanIn = new Scanner(System.in);
         storm.setName(scanIn.nextLine());
         
+        try{
         System.out.println("Enter the storms Wind Speed: ");
         storm.setWindSpeed(Integer.parseInt(scanIn.nextLine()));
-        
+        }
+        catch(NumberFormatException nfe){
+            System.out.println("Please enter an integer into the windspeed");
+        }
         System.out.println("Enter the storms temperature: ");
         storm.setTemp(Integer.parseInt(scanIn.nextLine()));
         
