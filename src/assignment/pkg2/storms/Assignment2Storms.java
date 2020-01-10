@@ -17,8 +17,7 @@ public class Assignment2Storms {
      * 
      * @return values  1-8
      */
-    private static int getChoice()
-    {
+    private static int getChoice() {
         System.out.println("What do you wish to do. Please enter the corresponding number.");
         System.out.println("1: Add a Hurricane to the list");
         System.out.println("2: Add a Tornado to the list");
@@ -29,11 +28,15 @@ public class Assignment2Storms {
         System.out.println("7: Remove a storm from the system");
         System.out.println("8: EXIT the system");
 
-        Scanner scanner = new Scanner(System.in);
-        int result =  Integer.parseInt(scanner.nextLine());
-      //  scanner.close();
-        return result;
-                
+        try {
+            Scanner scanner = new Scanner(System.in);
+            int result = Integer.parseInt(scanner.nextLine());
+            return result;
+        } catch (NumberFormatException be) {
+            System.out.println("Please enter a value");
+            return 0;
+        }
+
     }
     
     /**
@@ -46,7 +49,7 @@ public class Assignment2Storms {
         int choice = getChoice();
 
         while (choice != 8) {
-            if (choice < 4) {
+            if (choice > 0 && choice < 4) {
                 Storm newStorm = null;
                 if (choice == 1) {
                     newStorm = SAC.newHurricane();
@@ -112,18 +115,21 @@ public class Assignment2Storms {
 
                 Scanner inScan = new Scanner(System.in);
                 String stormName = inScan.nextLine();
-                Storm storm = SAC.getStorm(stormName);
+
+                boolean deleted = false;
+                for (int i = 0; i < SAC.storms.length; i++) {
+                    Storm thisStorm = SAC.storms[i];
+                    if (thisStorm != null && stormName.equals(thisStorm.getName())) {
+                        SAC.storms[i] = null;
+                        System.out.println("Storm deleted");
+                        deleted = true;
+                    } else {
+                    }
+                }
                 
-                if(storm != null)
-                {
-                   storm.setName(null);
-                   storm.setWindSpeed(0);
-                   storm.setTemp(0);
-                }
-                else
-                {
+                if(!deleted)                   
                     System.out.println("This storm was not recorded on our system.");
-                }
+
                 
                 
             } else if (choice == 8) {
