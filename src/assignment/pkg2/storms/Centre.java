@@ -43,7 +43,7 @@ public class Centre {
         Scanner scanIn = new Scanner(System.in);
         storm.setName(scanIn.nextLine());
         
-        try{
+        try {
         System.out.println("Enter the storms Wind Speed: ");
         storm.setWindSpeed(Integer.parseInt(scanIn.nextLine()));
         }

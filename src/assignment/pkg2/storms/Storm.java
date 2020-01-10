@@ -77,11 +77,21 @@ public abstract class Storm {
         Scanner scanIn = new Scanner(System.in);
         setName(scanIn.nextLine());
         
+        try {
         System.out.println("Enter the storms new windspeed: ");
         setWindSpeed(Integer.parseInt(scanIn.nextLine()));
-        
+        }
+        catch(NumberFormatException nfe) {
+            System.out.println("Please enter an integer(number) for the new storms WindSpeed.");
+        }
+        try {
         System.out.println("Enter the storms new temperature: ");
         setTemp(Integer.parseInt(scanIn.nextLine()));
+        }
+         
+         catch(NumberFormatException nfe) {
+            System.out.println("Please enter an integer(number) for the new storms Temperature.");
+        }
     }
 
     public String getType() {
