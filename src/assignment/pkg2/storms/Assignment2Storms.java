@@ -110,23 +110,21 @@ public class Assignment2Storms {
             } else if (choice == 7) {
                 System.out.println("Please enter the name of the storm that you wish to remove from the system.");
 
-                for (int i = 0; i < SAC.storms.length; i++) {
-                    
                 Scanner inScan = new Scanner(System.in);
                 String stormName = inScan.nextLine();
-                Storm stormId = SAC.getStorm(stormName);
+                Storm storm = SAC.getStorm(stormName);
                 
-                if(stormId != null)
+                if(storm != null)
                 {
-                   stormId.setName(null);
-                   stormId.setWindSpeed(0);
-                   stormId.setTemp(0);
+                   storm.setName(null);
+                   storm.setWindSpeed(0);
+                   storm.setTemp(0);
                 }
                 else
                 {
                     System.out.println("This storm was not recorded on our system.");
                 }
-                }
+                
                 
             } else if (choice == 8) {
                 System.exit(0);
