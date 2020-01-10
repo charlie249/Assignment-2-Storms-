@@ -257,6 +257,11 @@ public class StormTest {
      */
     @Test
     public void testSetName() {
+        Hurricane h7 = new Hurricane();
+        h7.setName("Barry");
+        h7.setWindSpeed(122);
+        h7.setTemp(12);
+        Assert.assertEquals("Barry", h7.getName());
     }
 
     /**
